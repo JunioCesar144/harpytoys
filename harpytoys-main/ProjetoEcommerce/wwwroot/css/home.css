@@ -1,0 +1,70 @@
+﻿.top-bar {
+    width: 100%;
+    background: #FFD43B;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.logo {
+    height: 100px;
+    width:100px;
+}
+
+.titulo {
+    font-size: 24px;
+    margin: 20px 0 10px 20px;
+    font-weight: bold;
+    color: #0A5432;
+}
+
+.produtos-linha {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.card {
+    width: 180px;
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #ccc;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 140px;
+    background: #dcdcdc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.nome {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.preco {
+    color: #009900;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.btn-comprar {
+    background: #FFC107;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}

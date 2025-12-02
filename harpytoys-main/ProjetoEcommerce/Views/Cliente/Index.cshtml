@@ -1,0 +1,80 @@
+﻿@* Define o modelo (Model) que esta View irá utilizar. É uma coleção (IEnumerable) de objetos Cliente do seu projeto. *@
+@model IEnumerable<ProjetoEcommerce.Models.Cliente>
+
+
+@* Faz a inclusão de um arquivo CSS externo para aplicar estilos específicos à lista de clientes. *@
+<link href="~/css/listacliente.css" rel="stylesheet" />
+
+@* Define um parágrafo que contém o link/botão para a tela de cadastro de um novo cliente. *@
+<p>
+    @* Tag Helper que cria um link (âncora) para a ação "CadastrarCliente" dentro do controlador "Cliente". *@
+    <a asp-controller="Cliente" asp-action="CadastrarCliente" class="btn btn-primary">Cadastra Cliente</a>
+</p>
+
+@* Início da tabela HTML que será usada para exibir a lista de clientes. *@
+<table class="table custom-table">
+    @* Início da seção de cabeçalho da tabela (Header). *@
+    <thead>
+        @* Início da linha do cabeçalho. *@
+        <tr>
+            @* Coluna para o código do cliente. *@
+            <th>
+                @* Exibe o nome de exibição (DisplayName) definido no modelo para a propriedade CodCli. *@
+                @Html.DisplayNameFor(model => model.CodCli)
+            </th>
+            @* Coluna para o nome do cliente. *@
+            <th>
+                @* Exibe o nome de exibição (DisplayName) definido no modelo para a propriedade NomeCli. *@
+                @Html.DisplayNameFor(model => model.NomeCli)
+            </th>
+            @* Coluna para o telefone do cliente. *@
+            <th>
+                @* Exibe o nome de exibição (DisplayName) definido no modelo para a propriedade TelCli. *@
+                @Html.DisplayNameFor(model => model.TelCli)
+            </th>
+            @* Coluna para o email do cliente. *@
+            <th>
+                @* Exibe o nome de exibição (DisplayName) definido no modelo para a propriedade EmailCli. *@
+                @Html.DisplayNameFor(model => model.EmailCli)
+            </th>
+            @* Coluna dedicada para as ações (Editar/Excluir). *@
+            <th class="text-center">Ação</th>
+        </tr>
+    </thead>
+    @* Início da seção do corpo da tabela (Body), onde os dados serão listados. *@
+    <tbody>
+        @* Inicia um loop que itera sobre cada item (objeto Cliente) presente no Model. *@
+        @foreach (var item in Model)
+        {
+            @* Início de uma nova linha para cada cliente. *@
+            <tr>
+                @* Célula que exibe o valor da propriedade CodCli do cliente atual. *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodCli)
+                </td>
+                @* Célula que exibe o valor da propriedade NomeCli do cliente atual. *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeCli)
+                </td>
+                @* Célula que exibe o valor da propriedade TelCli do cliente atual. *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelCli)
+                </td>
+                @* Célula que exibe o valor da propriedade EmailCli do cliente atual. *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailCli)
+                </td>
+                @* Célula que contém os botões de ação para o cliente atual. *@
+                <td class="text-center">
+                    @* Link/Botão para Editar o cliente. Passa o CodCli do item atual como parâmetro (route-id). *@
+                    <a asp-controller="Cliente" asp-action="EditarCliente" asp-route-id="@item.CodCli" class="btn btn-sm btn-warning">Editar</a>
+                    <span>|</span>
+                    @* Link/Botão para Excluir o cliente. Também passa o CodCli como parâmetro. *@
+                    @* Adiciona uma confirmação via JavaScript antes de enviar a requisição de exclusão. *@
+                    <a asp-controller="Cliente" asp-action="ExcluirCliente" asp-route-id="@item.CodCli"
+                                   onclick="return confirm('Deseja realmente Excluir este item?');" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
