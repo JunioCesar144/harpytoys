@@ -1,0 +1,62 @@
+﻿@model ProjetoEcommerce.Models.CadProduto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro do Produto</title>
+    <link rel="stylesheet" href="~/css/cadProduto.css" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LOGO (VOCÊ COLOCA A IMAGEM DEPOIS) -->
+        <div class="logo"></div>
+
+        <div class="card">
+
+            <h2 class="titulo">Cadastro do Produto</h2>
+
+            <form method="post" enctype="multipart/form-data">
+
+                <input type="text" name="Descricao" placeholder="Nome do produto" />
+
+                <input type="text" name="ID_Produto" placeholder="Código" />
+
+                <input type="text" name="Cod_Barras" placeholder="Código de barras" />
+
+                <input type="text" name="Valor" placeholder="Preço" />
+
+                <div class="upload">
+                    <label class="btn-upload">
+                        Enviar Imagem
+                        <input type="file" name="imagem" hidden />
+                    </label>
+
+                    <span class="icon">🖼️➕</span>
+                </div>
+
+                <div class="botoes">
+                    <button type="button" class="btn excluir">Excluir</button>
+                    <button type="button" class="btn pesquisar">Pesquisar</button>
+                    <button type="submit" class="btn cadastrar">Cadastrar</button>
+                </div>
+
+                @if (ViewBag.Mensagem != null)
+                {
+                    <p class="msg">@ViewBag.Mensagem</p>
+                }
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

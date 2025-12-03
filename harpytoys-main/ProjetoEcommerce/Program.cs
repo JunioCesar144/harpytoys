@@ -2,35 +2,34 @@ using ProjetoEcommerce.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// MVC
 builder.Services.AddControllersWithViews();
 
-// INJEÇÃO DE DEPENDENCIA 
-builder.Services.AddHttpContextAccessor();
+// Sessão
 builder.Services.AddSession();
+
+// Repositórios (injeção de dependência)
 builder.Services.AddScoped<UsuarioRepositorio>();
-builder.Services.AddScoped<ClienteRepositorio>();
-
-
-
+builder.Services.AddScoped<CadProdutoRepositorio>(); // <- ESSENCIAL
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseSession();
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
-app.UseStaticFiles();
 
-app.UseSession();
+app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
 
+// Rota padrão
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Usuario}/{action=Login}/{id?}");
 
 app.Run();

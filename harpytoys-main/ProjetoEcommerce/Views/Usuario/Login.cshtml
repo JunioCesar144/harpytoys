@@ -1,31 +1,42 @@
-﻿@model ProjetoEcommerce.Models.Usuario;
+﻿@{
+    Layout = null;
+}
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+<body>
 
-<link href="~/css/login.css" rel="stylesheet" />
+    <div class="card">
 
+        <h2 class="titulo">Seja Bem-Vindo(a)</h2>
 
-<div class="login-container">
+        <form method="post" asp-controller="Usuario" asp-action="Login">
 
-    <div class="login-box">
-        <!-- o card -->
-        <!-- logo ficará sobrepondo o card -->
-      
-        <img src="~/img/logo_harpytoys.png" class="login-logo" />
-
-        <div class="login-inner">
-            <!-- conteúdo interno do card -->
-            <h2 class="login-title">Login</h2>
-
-            <input type="text" placeholder="Nome Usuário / Email" class="login-input" />
-            <input type="password" placeholder="Senha" class="login-input" />
-
-            <a href="#" class="forgot-link">Esqueceu a senha?</a>
-
-            <div class="button-area">
-                <button class="btn-yellow">VOLTAR</button>
-                <button class="btn-yellow">ENTRAR</button>
+            <label>Insira seu usuário</label>
+            <div class="input-box">
+                <input name="email" placeholder="Email" />
             </div>
-        </div>
+
+            <label>Insira sua senha</label>
+            <div class="input-box">
+                <input name="senha" type="password" placeholder="Senha" />
+            </div>
+
+            <button type="submit">Entrar</button>
+
+            <a class="link" href="#">Esqueceu sua senha?</a>
+
+            @if (ViewBag.Erro != null)
+            {
+                <p class="erro">@ViewBag.Erro</p>
+            }
+        </form>
+
     </div>
 
-</div>
+</body>
+</html>

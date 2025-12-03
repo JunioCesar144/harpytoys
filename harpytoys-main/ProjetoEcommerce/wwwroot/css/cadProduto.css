@@ -1,0 +1,144 @@
+﻿/* ========================== */
+/*      ESTILO GERAL          */
+/* ========================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #003A70;
+    font-family: "Poppins", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ========================== */
+/*      LOGO SUPERIOR         */
+/* ========================== */
+
+.logo {
+    width: 250px;
+    height: 250px;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -40px;
+    left: 50px;
+}
+
+/* ========================== */
+/*      CARD PRINCIPAL        */
+/* ========================== */
+
+.container {
+    width: 900px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.card {
+    background: #F3C037;
+    border: 12px solid #19632F;
+    padding: 120px 40px 40px 40px;
+    border-radius: 10px;
+}
+
+/* ========================== */
+/*      TÍTULO DO CARD        */
+/* ========================== */
+
+.titulo {
+    background: #003A70;
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 40px;
+    margin: 0 auto 40px auto;
+    width: 70%;
+    font-weight: 300;
+}
+
+/* ========================== */
+/*    CAMPOS DE ENTRADA       */
+/* ========================== */
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+    width: 60%;
+    margin: 15px auto;
+    display: block;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 4px solid #003A70;
+    outline: none;
+}
+
+::placeholder {
+    color: #D79CA8;
+    text-align: center;
+    font-size: 22px;
+}
+
+/* ========================== */
+/*      UPLOAD IMAGEM         */
+/* ========================== */
+
+.upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.btn-upload {
+    background: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 40px;
+    margin-left: 10px;
+}
+
+/* ========================== */
+/*         BOTÕES             */
+/* ========================== */
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+.btn {
+    background: #19632F;
+    color: white;
+    font-size: 26px;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+    .btn:hover {
+        filter: brightness(0.9);
+    }
+
+/* ========================== */
+/*      MENSAGEM SUCESSO      */
+/* ========================== */
+
+.msg {
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    margin-top: 30px;
+}
