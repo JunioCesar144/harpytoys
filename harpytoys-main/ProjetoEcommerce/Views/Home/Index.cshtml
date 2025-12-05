@@ -1,124 +1,104 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
 
-<link href="~/css/home.css" rel="stylesheet" />
+@section Styles {
+    <link href="~/css/home.css" rel="stylesheet" />
+}
 
-<div class="top-bar">
-   
-    <img src="~/img/logo_harpytoys.png" class="logo" />
+<div class="home-wrapper">
 
-</div>
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
 
-<h2 class="titulo">Lançamentos</h2>
+        <div class="logo-container">
+            <img src="~/img/logo 2.png" class="logo" />
+        </div>
 
-<div class="produtos-linha">
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
+        <nav class="menu-icons">
 
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
+            <div class="icon-wrapper">
+                <img src="~/img/home.png" />
+            </div>
 
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
+            <div class="icon-wrapper">
+                <img src="~/img/user.png" />
+            </div>
 
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-</div>
+            <div class="icon-wrapper">
+                <img src="~/img/addprofile.png" />
+            </div>
+
+            <div class="icon-wrapper">
+                <img src="~/img/createproduct.png" />
+            </div>
+
+            <div class="icon-wrapper">
+                <img src="~/img/database.png" />
+            </div>
+
+            <div class="icon-wrapper">
+                <img src="~/img/exity.png" />
+            </div>
+
+        </nav>
+    </aside>
 
 
-<h2 class="titulo">Produtos</h2>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
 
-<div class="produtos-linha">
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-</div>
+        <section class="secao">
+            <h2>Tela de Usuário</h2>
+            <p>Selecione a rotina que deseja</p>
+            <div class="links">
+                <span>Email</span>
+                <span>Senha</span>
+                <span>Nome</span>
+                <span>Controle Admin</span>
+            </div>
+        </section>
 
-<div class="produtos-linha">
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
-    <div class="card">
-        <div class="img-placeholder">IMAGEM PRODUTO</div>
-        <p class="nome">Nome do Produto</p>
-        <p class="preco">R$ 00,00</p>
-        <button class="btn-comprar">COMPRAR</button>
-    </div>
+        <section class="secao">
+            <h2>Cadastro de Usuário</h2>
+            <p>Selecione a rotina que deseja</p>
+            <div class="links">
+                <span>Cadastrar</span>
+                <span>Alterar Dados</span>
+                <span>Alterar Preferências</span>
+            </div>
+        </section>
+
+        <section class="secao">
+            <h2>Cadastro de Produto</h2>
+            <p>Selecione a rotina que deseja</p>
+            <div class="links">
+                <span>Cadastrar</span>
+                <span>Alterar Dados</span>
+                <span>Excluir Produto</span>
+            </div>
+        </section>
+
+        <section class="secao">
+            <h2>Listagem de Produto</h2>
+            <p>Selecione a rotina que deseja</p>
+            <div class="links">
+                <span>Consultar Produto</span>
+                <span>Filtrar Produto</span>
+            </div>
+        </section>
+
+        <section class="secao">
+            <h2>Eventos do Sistema:</h2>
+            <select class="combo">
+                <option>Selecione um evento...</option>
+                <option>Login realizado</option>
+                <option>Cadastro atualizado</option>
+                <option>Produto inserido</option>
+                <option>Produto excluído</option>
+            </select>
+        </section>
+
+    </main>
+
 </div>

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ProjetoEcommerce.Models.Produto>
+
+<link rel="stylesheet" href="~/css/Produto.css" />
+
+<div class="container-produtos">
+
+    <h2>Grupo de Produtos HarpyToys</h2>
+
+    <form method="get" class="filtros">
+
+        <div class="linha-filtros">
+
+            <div class="campo">
+                <label>Nome do Produto</label>
+                <input type="text" name="nome" value="@ViewBag.Nome" />
+            </div>
+
+            <div class="campo">
+                <label>Código do Produto</label>
+                <input type="text" name="codigo" value="@ViewBag.Codigo" />
+            </div>
+
+            <div class="campo">
+                <label>Registro por Páginas</label>
+                <input type="number" min="1" max="50" name="take" value="@ViewBag.Take" />
+            </div>
+
+        </div>
+
+        <div class="linha-botoes">
+            <button type="submit" class="btn btn-pesquisar">🔍 PESQUISAR</button>
+            <a class="btn btn-exibir" href="/Produto/Index">EXIBIR TODOS</a>
+            <a class="btn btn-add" href="/CadProduto/Cadastro">ADICIONAR PRODUTO +</a>
+        </div>
+
+    </form>
+
+    <table class="tabela">
+        <thead>
+            <tr>
+                <th>Nome do Produto</th>
+                <th>Código</th>
+                <th>Código de Barras</th>
+                <th>Preço</th>
+                <th>Imagem do Produto</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Descricao</td>
+                    <td>@p.ID_Produto</td>
+                    <td>@p.Cod_Barras</td>
+                    <td>R$ @p.Valor.ToString("N2")</td>
+
+                    <td class="col-img">
+                        @if (!string.IsNullOrEmpty(p.Cod_Imagem))
+                        {
+                            <input type="checkbox" checked disabled />
+                        }
+                        else
+                        {
+                            <input type="checkbox" disabled />
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="paginacao">
+        <a class="btn-pag" href="/Produto/Index?page=@(ViewBag.Page - 1)">⬅ VOLTAR</a>
+        <span class="num">@ViewBag.Page</span>
+        <a class="btn-pag" href="/Produto/Index?page=@(ViewBag.Page + 1)">AVANÇAR ➡</a>
+    </div>
+
+</div>

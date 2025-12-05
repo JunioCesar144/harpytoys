@@ -2,11 +2,12 @@ html {
   font-size: 14px;
 }
 
-#logo{
-    width:40px;
-    height:40px;
-    border-radius:50%;
+.sidebar .logo {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
 }
+
 
 @media (min-width: 768px) {
   html {
@@ -25,4 +26,15 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+/* LOGO DA NAVBAR */
+#navbar-logo {
+    max-height: 50px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
+
+#logo {
+    all: unset !important; /* remove QUALQUER regra antiga */
 }

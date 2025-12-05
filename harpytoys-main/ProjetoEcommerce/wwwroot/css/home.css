@@ -1,70 +1,124 @@
-﻿.top-bar {
+/* ======== LOGO DA NAVBAR ======== */
+.navbar-logo {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ======== CONTAINER PRINCIPAL DA HOME (renomeado para evitar conflito) ======== */
+.home-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     width: 100%;
-    background: #FFD43B;
-    padding: 10px;
+    height: calc(100vh - 70px);
+    margin: 0;
+    padding: 0;
+}
+
+/* ======== SIDEBAR ======== */
+.sidebar {
+    width: 170px;
+    background: #0065D0;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-
+    padding-top: 20px;
+    flex-shrink: 0;
 }
 
-.logo {
-    height: 100px;
-    width:100px;
-}
+    /* ======== LOGO DO MENU LATERAL ======== */
+    .sidebar .logo-container {
+        width: 140px;
+        height: 140px;
+        background: #D4D4D4;
+        border-radius: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        overflow: hidden;
+    }
 
-.titulo {
-    font-size: 24px;
-    margin: 20px 0 10px 20px;
-    font-weight: bold;
-    color: #0A5432;
-}
+    .sidebar .logo {
+        width: 110px;
+        height: auto;
+        object-fit: contain;
+        display: block;
+    }
 
-.produtos-linha {
-    display: flex;
-    gap: 20px;
+    /* ======== ÍCONES DO MENU ======== */
+    .sidebar .icon-wrapper {
+        width: 75px;
+        height: 75px;
+        padding: 10px;
+        background: #D4D4D4;
+        border-radius: 20px;
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .sidebar .icon-wrapper img {
+            width: 40px;
+            height: auto;
+            object-fit: contain;
+        }
+
+/* ======== CONTEÚDO PRINCIPAL ======== */
+.conteudo {
+    flex-grow: 1;
     padding: 20px;
-    justify-content: center;
+    background: #ffffff;
 }
 
-.card {
-    width: 180px;
-    background: white;
-    border-radius: 12px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid #ccc;
-}
-
-.img-placeholder {
+/* SEÇÕES */
+.secao {
+    background: #D4D4D4;
+    padding: 18px 30px;
+    margin-bottom: 10px;
     width: 100%;
-    height: 140px;
-    background: #dcdcdc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
-    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+    .secao:nth-child(even) {
+        background: #ffffff;
+    }
+
+/* TITULOS */
+h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #013F79;
     font-weight: bold;
+}
+
+/* TEXTOS */
+p {
+    margin: 3px 0 12px 0;
+    color: #6f6f6f;
     font-size: 14px;
 }
 
-.nome {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.preco {
-    color: #009900;
-    font-size: 18px;
-    margin: 5px 0;
-}
-
-.btn-comprar {
-    background: #FFC107;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 8px;
+/* LINKS */
+.links span {
+    margin-right: 35px;
+    color: #0049A8;
     font-weight: bold;
     cursor: pointer;
+}
+
+    .links span:hover {
+        text-decoration: underline;
+    }
+
+/* COMBO */
+.combo {
+    width: 90%;
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #013F79;
 }

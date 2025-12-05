@@ -1,3 +1,4 @@
+
 using ProjetoEcommerce.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,12 +6,18 @@ var builder = WebApplication.CreateBuilder(args);
 // MVC
 builder.Services.AddControllersWithViews();
 
+
+
 // Sessão
 builder.Services.AddSession();
 
 // Repositórios (injeção de dependência)
 builder.Services.AddScoped<UsuarioRepositorio>();
 builder.Services.AddScoped<CadProdutoRepositorio>(); // <- ESSENCIAL
+builder.Services.AddScoped<ProdutoRepositorio>();
+
+
+
 
 var app = builder.Build();
 

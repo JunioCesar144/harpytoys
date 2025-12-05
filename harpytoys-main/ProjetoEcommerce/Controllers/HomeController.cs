@@ -1,35 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
 using ProjetoEcommerce.Models;
 using ProjetoEcommerce.Repositorio;
-using System.Diagnostics;
 
 namespace ProjetoEcommerce.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-  
+        private readonly HomeRepositorio _homeRepositorio;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
         {
-            _logger = logger;
-      
+            _homeRepositorio = new HomeRepositorio();
         }
 
-        //Pagina Index do cliente
         public IActionResult Index()
         {
-            
-            return View();
-        }
+            // Pega dados do repositório
+            HomeModel model = _homeRepositorio.ObterDadosHome();
 
-
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            // Envia para a view Index.cshtml
+            return View(model);
         }
     }
 }
