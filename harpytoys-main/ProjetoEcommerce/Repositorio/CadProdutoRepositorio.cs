@@ -18,6 +18,9 @@ namespace ProjetoEcommerce.Repositorio
             return new MySqlConnection(_connectionString);
         }
 
+        // ============================
+        // CADASTRAR
+        // ============================
         public void Cadastrar(CadProduto produto)
         {
             using (var db = Conn())
@@ -31,5 +34,47 @@ namespace ProjetoEcommerce.Repositorio
                 db.Execute(sql, produto);
             }
         }
+
+
+
+
+
+        // ============================
+        // PESQUISAR POR NOME
+        // ============================
+        public CadProduto BuscarPorNome(string nome)
+        {
+            using (var db = Conn())
+            {
+                string sql = @"
+            SELECT * 
+            FROM Produto
+            WHERE Descricao LIKE CONCAT('%', @Nome, '%')
+        ";
+
+                return db.QueryFirstOrDefault<CadProduto>(sql, new { Nome = nome });
+            }
+        }
+
+
+        // ============================
+        // EXCLUIR PRODUTO
+        // ============================
+        public bool ExcluirPorNome(string nome)
+        {
+            using (var db = Conn())
+            {
+                string sql = @"
+            DELETE FROM Produto
+            WHERE Descricao LIKE CONCAT('%', @Nome, '%')
+        ";
+
+                int linhas = db.Execute(sql, new { Nome = nome });
+
+                return linhas > 0;
+            }
+        }
+
     }
 }
+

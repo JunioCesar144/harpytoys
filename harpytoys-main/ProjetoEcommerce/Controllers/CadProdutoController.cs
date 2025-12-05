@@ -15,16 +15,21 @@ namespace ProjetoEcommerce.Controllers
             _repositorio = repositorio;
         }
 
+        // ============================
+        //   TELA CADASTRO
+        // ============================
         [HttpGet]
         public IActionResult Cadastro()
         {
-            return View("CadProduto"); // 👈 MOSTRAR A VIEW CadProduto.cshtml
+            return View("CadProduto");
         }
 
+        // ============================
+        //   CADASTRAR PRODUTO
+        // ============================
         [HttpPost]
         public IActionResult Cadastro(CadProduto produto, IFormFile imagem)
         {
-            // Gerar ID manualmente já que o banco não tem AUTO_INCREMENT
             produto.ID_Produto = new Random().Next(1000, 9999);
 
             if (imagem != null && imagem.Length > 0)
@@ -34,13 +39,11 @@ namespace ProjetoEcommerce.Controllers
                 if (!Directory.Exists(pasta))
                     Directory.CreateDirectory(pasta);
 
-                string nomeArquivo = Guid.NewGuid().ToString() + Path.GetExtension(imagem.FileName);
+                string nomeArquivo = Guid.NewGuid() + Path.GetExtension(imagem.FileName);
                 string caminho = Path.Combine(pasta, nomeArquivo);
 
                 using (var stream = new FileStream(caminho, FileMode.Create))
-                {
                     imagem.CopyTo(stream);
-                }
 
                 produto.Cod_Imagem = "/img/produtos/" + nomeArquivo;
             }
@@ -50,7 +53,42 @@ namespace ProjetoEcommerce.Controllers
             _repositorio.Cadastrar(produto);
 
             ViewBag.Mensagem = "Produto cadastrado com sucesso!";
-            return View("CadProduto"); // 👈 DEPOIS DO POST, RETORNA A MESMA VIEW
+            return View("CadProduto");
+        }
+
+        // ============================
+        //   PESQUISAR PRODUTO
+        // ============================
+        [HttpPost]
+        public IActionResult Pesquisar(string Descricao)
+        {
+            var produto = _repositorio.BuscarPorNome(Descricao);
+
+            if (produto == null)
+            {
+                ViewBag.Mensagem = "Produto não encontrado!";
+                return View("CadProduto");
+            }
+
+            return View("CadProduto", produto);
+        }
+
+        // ============================
+        //   EXCLUIR PRODUTO
+        // ============================
+        [HttpPost]
+        public IActionResult Excluir(string Descricao)
+        {
+            bool excluiu = _repositorio.ExcluirPorNome(Descricao);
+
+            if (!excluiu)
+            {
+                ViewBag.Mensagem = "Nenhum produto encontrado para excluir!";
+                return View("CadProduto");
+            }
+
+            ViewBag.Mensagem = "Produto excluído com sucesso!";
+            return View("CadProduto");
         }
     }
 }

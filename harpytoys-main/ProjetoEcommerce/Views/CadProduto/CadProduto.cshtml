@@ -16,7 +16,7 @@
     <div class="container">
 
         <!-- LOGO -->
-		<img class="logo" src="~/img/logo.png" />
+        <img class="logo" src="~/img/logo.png" />
 
         <div class="card">
 
@@ -27,16 +27,33 @@
 
             <h2 class="titulo">Cadastro do Produto</h2>
 
+            <!-- FORM -->
             <form method="post" enctype="multipart/form-data">
 
-                <input type="text" name="Descricao" placeholder="Nome do produto" />
+                <!-- campo oculto para enviar o ID na exclusão/pesquisa -->
+                <input type="hidden" name="ID_Produto" value="@Model?.ID_Produto" />
 
-                <input type="text" name="ID_Produto" placeholder="Código" />
+                <input type="text"
+                       name="Descricao"
+                       placeholder="Nome do produto"
+                       value="@Model?.Descricao" />
 
-                <input type="text" name="Cod_Barras" placeholder="Código de barras" />
+                <input type="text"
+                       name="Codigo"
+                       placeholder="Código"
+                       value="@Model?.ID_Produto" />
 
-                <input type="text" name="Valor" placeholder="Preço" />
+                <input type="text"
+                       name="Cod_Barras"
+                       placeholder="Código de barras"
+                       value="@Model?.Cod_Barras" />
 
+                <input type="text"
+                       name="Valor"
+                       placeholder="Preço"
+                       value="@Model?.Valor" />
+
+                <!-- UPLOAD -->
                 <div class="upload">
                     <label class="btn-upload">
                         Enviar Imagem
@@ -46,15 +63,47 @@
                     <span class="icon">🖼️➕</span>
                 </div>
 
+                <!-- EXIBE A IMAGEM QUANDO PESQUISADO -->
+                @if (Model != null && !string.IsNullOrEmpty(Model.Cod_Imagem))
+                {
+                    <div class="preview">
+                        <img src="@Model.Cod_Imagem" class="preview-img" />
+                    </div>
+                }
+
+                <!-- BOTÕES -->
                 <div class="botoes">
-                    <button type="button" class="btn excluir">Excluir</button>
-                    <button type="button" class="btn pesquisar">Pesquisar</button>
-                    <button type="submit" class="btn cadastrar">Cadastrar</button>
+
+                    <!-- EXCLUIR -->
+                    <button type="submit" formaction="/CadProduto/Excluir" class="btn excluir">
+                        Excluir
+                    </button>
+
+
+                    <!-- PESQUISAR -->
+                    <button
+                        type="submit" formaction="/CadProduto/Pesquisar" class="btn pesquisar">Pesquisar
+
+                    </button>
+
+                    <!-- CADASTRAR -->
+                    <button type="submit"
+                            formaction="/CadProduto/Cadastro"
+                            class="btn cadastrar">
+                        Cadastrar
+                    </button>
+
                 </div>
 
+                <!-- MENSAGENS -->
                 @if (ViewBag.Mensagem != null)
                 {
-                    <p class="msg">@ViewBag.Mensagem</p>
+                    <p class="msg sucesso">@ViewBag.Mensagem</p>
+                }
+
+                @if (ViewBag.Erro != null)
+                {
+                    <p class="msg erro">@ViewBag.Erro</p>
                 }
 
             </form>
